@@ -1,0 +1,11 @@
+#baseImage {
+  width: 80vw;
+  max-width: 1280px;
+  margin: auto;
+  display: block;
+  -webkit-filter: grayscale(1);
+}
+
+.muscle {
+  position: absolute;
+}
