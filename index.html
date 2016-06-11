@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Mucle Training Tracking</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
 
@@ -74,23 +74,7 @@
     <script src="bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
     <script src="bower_components/maphilight/jquery.maphilight.min.js" charset="utf-8"></script>
 
-
-    <script type="text/javascript">
-      $(() => {
-        $('#baseImage').maphilight({
-          fill: false,
-          stroke: false
-        });
-        $('area').mouseover(function() {
-          var title = $(this).attr('title');
-          document.getElementById(title).classList.add('hover');
-        })
-        .mouseout(function(){
-          var title = $(this).attr('title');
-          document.getElementById(title).classList.remove('hover');
-        });
-      });
-    </script>
+    <script src="js/main.js" charset="utf-8"></script>
 
   </body>
 </html>
