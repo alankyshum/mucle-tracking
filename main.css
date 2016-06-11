@@ -1,11 +1,111 @@
-#baseImage {
-  width: 80vw;
-  max-width: 1280px;
+#skin {
   margin: auto;
-  display: block;
+  position: relative;
+  width: 960px;
+}
+#skin div {
+  /*wrapper for base canvas */
   -webkit-filter: grayscale(1);
 }
-
+/*#baseImage {
+  display: block;
+  -webkit-filter: grayscale(1);
+  position: absolute;
+  z-index: 0;
+}*/
 .muscle {
   position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  -webkit-filter: grayscale(1);
+}
+.muscle.hover {
+  z-index: 99;
+  -webkit-filter: grayscale(0);
+}
+
+#absCore {
+  top: 243px;
+  left: 181px;
+}
+#bicep {
+  top: 223px;
+  left: 101px;
+}
+#chest {
+  top: 173px;
+  left: 121px;
+}
+#externalAnterior {
+  top: 241px;
+  left: 144px;
+  width: 140px;
+}
+#forearms {
+  top: 267px;
+  left: 69px;
+}
+#vastusLateralis {
+  top: 413px;
+  left: 133px;
+}
+#vastusMedialis {
+  top: 421px;
+  left: 173px;
+}
+#longus {
+  top: 533px;
+  left: 153px;
+}
+#neck {
+  top: 117px;
+  left: 191px;
+}
+#rectusRemoris {
+  top: 339px;
+  left: 145px;
+}
+#serratusAnterior {
+  top: 236px;
+  left: 138px;
+}
+#shoulder {
+  top: 171px;
+  left: 97px;
+}
+#trapezius {
+  top: 130px;
+  left: 140px;
+}
+#tricep {W
+  top: 209px;
+  left: 581px;
+}
+#back {
+  top: 115px;
+  left: 649px;
+}
+#infraspinatus {
+  top: 193px;
+  left: 631px;
+}
+#dorsi {
+  top: 229px;
+  left: 637px;
+}
+#triceps {
+  top: 210px;
+  left: 581px;
+}
+#glutes {
+  top: 319px;
+  left: 663px;
+}
+#hamstrings {
+  top: 419px;
+  left: 661px;
+}
+#calves {
+  top: 525px;
+  left: 649px;
 }
