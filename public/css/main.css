@@ -1,3 +1,17 @@
+/**
+ * GLOBAL STYLES
+ */
+* {
+  margin: 0;
+}
+body {
+  color: #9a0000;
+}
+
+
+/**
+ * SKIN DIV
+ */
 #skin {
   margin: auto;
   position: relative;
@@ -104,4 +118,85 @@
 #calves {
   top: 525px;
   left: 649px;
+}
+
+
+/**
+ * NAVBAR
+ */
+div#traningInput {
+  position: fixed;
+  width: 100%;
+  padding: 30px 0 10px 0;
+  background-color: #9a0000;
+  color: #fff;
+  text-align: center;
+  top: 0;
+}
+
+
+div#traningInput input {
+  padding: 5px 10px;
+  border-radius: 2px;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  height: 20px;
+}
+
+div#traningInput input:focus {
+  outline: 3px solid #670000;
+}
+
+div#traningInput #numSets {
+  padding-left: 10px;
+}
+div#traningInput #numSetsWrapper:before {
+  content: "x";
+}
+
+div#traningInput #type {
+  display: none;
+}
+div#traningInput .trainingDetail {
+  display: none;
+}
+div#traningInput  #type:not(:checked) ~ [data-type='weight'] {
+  display: inline-block;
+}
+div#traningInput  #type:checked ~ [data-type='cardio'] {
+  display: inline-block;
+}
+
+
+div#traningInput .inputWrapper {
+    margin: 15px 20px 0 20px;
+    display: inline-block;
+    position: relative;
+}
+div#traningInput .inputWrapper select {
+  -webkit-appearance: none;
+  border-radius: 0;
+  padding: 0px 10px;
+  color: #fff;
+  background-color: #9a0000;
+  border: 1px solid #fff;
+}
+div#traningInput .inputWrapper select:focus {
+  outline: none;
+  background-color: #710000;
+  transition: background-color .3s;
+}
+
+
+div#traningInput .inputWrapper:before {
+    content: attr(data-legend);
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #710000;
+    padding: 5px 10px;
 }

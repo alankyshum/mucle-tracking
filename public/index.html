@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
   <head>
     <meta charset="utf-8">
     <title>Mucle Training Tracking</title>
+    <meta name="theme-color" content="#9a0000">
+    <link rel="icon" sizes="192x192" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.png">
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
@@ -71,7 +74,32 @@
       </map>
     </div>
 
+    <div id="traningInput">
+      <div class="inputWrapper" data-legend='Timestamp'>
+        <input type="date" id="date" placeholder="Traning Date">
+        <input type="time" id="time" placeholder="Training Time">
+        <span class='pseudoWrapper' id='numSetsWrapper'>
+          <input type="number" id="numSets" name="numSets" value=1 min=1 max=99 placeholder="Sets">
+        </span>
+      </div>
 
+      <!-- TRAINING TYPE -->
+      <div class="inputWrapper" data-legend='Type'>
+        <input type="checkbox" id="type">
+        <label data-type='cardio' class='trainingDetail' for="type">Cardio</label>
+        <label data-type='weight' class='trainingDetail' for="type">Weight</label>
+        <input type="number" id="minutes" class='trainingDetail' data-type='cardio' placeholder="Length of training" min=1>
+        <input type="number" id="weight" class='trainingDetail' data-type='weight' placeholder="Weight of tool" min=1>
+      </div>
+
+      <div class="inputWrapper" data-legend='Tools'>
+        <select name="tool" id="tool">
+          <option value="dumbbell">Dumbbell</option>
+          <option value="rolling">Roller</option>
+          <option value="body">Body Weight</option>
+        </select>
+      </div>
+    </div>
 
     <script src="bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
     <script src="bower_components/maphilight/jquery.maphilight.min.js" charset="utf-8"></script>
