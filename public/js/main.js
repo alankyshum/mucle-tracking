@@ -79,10 +79,11 @@ const submitForm = () => {
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = () => {
       if (xhr.readyState == 4) {
+        let resJSON = JSON.parse(xhr.responseText);
         if (xhr.status == 200) {
-          resolve(xhr.responseText);
+          resolve(resJSON);
         } else {
-          reject(xhr.responseText);
+          reject(resJSON);
         }
       }
     };
@@ -97,6 +98,6 @@ const submit = () => {
     console.log(res);
   })
   .catch((err) => {
-    console.error(err);
+    console.error(`Error: ${err}`);
   })
 }
