@@ -49,18 +49,54 @@ document.getElementById('time').value = now.toTimeInputValue();
 
 
 // SUBMIT function
+const serialize = (obj) => {
+  var str = [];
+  for(var p in obj)
+    if (obj.hasOwnProperty(p)) {
+      str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+    }
+  return str.join("&");
+}
+
 const submitForm = () => {
   'use strict';
-  let valueSet = {};
-  valueSet.date = document.getElementById('date').value;
-  valueSet.time = document.getElementById('time').value;
-  valueSet.numSets = document.getElementById('numSets').value;
-  valueSet.type = document.getElementById('type').value;
-  valueSet.tool = document.getElementById('tool').value;
-  if (type) { // cardio training
-    valueSet.valueOfType = document.getElementById('minutes').value
-  } else { // weight training
-    valueSet.valueOfType = document.getElementById('weight').value
-  }
-  console.log(valueSet);
+  return new Promise((resolve, reject) => {
+    let valueSet = new FormData();
+    valueSet.append('date', document.getElementById('date').value);
+    valueSet.append('time', document.getElementById('time').value);
+    valueSet.append('numSets', document.getElementById('numSets').value);
+    let type = document.getElementById('type').checked;
+    valueSet.append('tool', document.getElementById('tool').value);
+    if (type) { // cardio training
+      valueSet.append('valueOfType', document.getElementById('minutes').value);
+      valueSet.append('type', 'cardio');
+    } else { // weight training
+      valueSet.append('valueOfType', document.getElementById('weight').value);
+      valueSet.append('type', 'weight');
+    }
+
+    // AJAX REQUEST
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState == 4) {
+        if (xhr.status == 200) {
+          resolve(xhr.responseText);
+        } else {
+          reject(xhr.responseText);
+        }
+      }
+    };
+    xhr.open('POST', '/trackingRecord');
+    xhr.send(valueSet);
+  }); // end:: promise
+}
+
+const submit = () => {
+  submitForm()
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((err) => {
+    console.error(err);
+  })
 }

@@ -1,6 +1,10 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    awesome_print (1.7.0)
+    bson (4.1.1)
+    mongo (2.2.5)
+      bson (~> 4.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -15,6 +19,8 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  awesome_print (>= 1.7.0)
+  mongo (>= 2.2.5)
   sinatra (= 1.4.7)
 
 BUNDLED WITH
