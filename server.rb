@@ -1,16 +1,17 @@
 require 'sinatra'
+require 'slim'
 require 'json'
 require 'awesome_print'
 require 'mongo'
 # MODELS
+config = JSON.parse(File.read('lib/config.json'))
+musclePos = JSON.parse(File.read('lib/musclePositions.json'))
 
 # INCLUDE
 include Mongo
 
 # GLOBAL VARAIBLES
 # ----------------
-configFile = File.read('config.json')
-config = JSON.parse(configFile)
 records = nil
 
 # CONFIGURATION
@@ -26,9 +27,12 @@ end
 # APIS OPENING
 # ------------
 
-get '/' do
-  File.read(File.join('public', 'index.html'))
-end
+get ('/') {
+  Slim::Template.new('views/index.slim', {}).render(Object.new,
+    :musclePos => musclePos["pos"],
+    :muscleSrc => musclePos["img"]
+  )
+}
 
 post '/trackingRecord' do
   ap params

@@ -1,0 +1,39 @@
+doctype html
+html[lang="en"]
+  head
+    meta[charset="utf-8"]
+    title Mucle Training Tracking
+    meta[name="theme-color" content="#9a0000"]
+    link[rel="icon" sizes="192x192" href="favicon.png"]
+    link[rel="shortcut icon" href="favicon.png"]
+    link[rel="stylesheet" href="css/main.css"]
+  body
+    #skin
+      - muscleSrc.each do |src|
+        img.muscle[id="#{src['id']}" src="#{src['src']}"]
+      img#baseImage[src="assets/baseMuscleStructure.png" usemap="#Map"]
+      map[name="Map"]
+        - musclePos.each do |pos|
+          area[target="" alt="#{pos['title']}" title="#{pos['title']}" coords="#{pos['coords']}" shape="poly"]
+    #traningInput
+      h3#muscleName
+      .inputWrapper[data-legend="Timestamp"]
+        input#date[type="date" placeholder="Traning Date"]
+        input#time[type="time" placeholder="Training Time"]
+        span#numSetsWrapper.pseudoWrapper
+          input#numSets[type="number" name="numSets" value="1" min="1" max="99" placeholder="Sets"]
+      .inputWrapper[data-legend="Type"]
+        input#type[type="checkbox"]
+        label.trainingDetail[data-type="cardio" for="type"] Cardio
+        label.trainingDetail[data-type="weight" for="type"] Weight
+        input#minutes.trainingDetail[type="number" data-type="cardio" placeholder="Length of training" min="1"]
+        input#weight.trainingDetail[type="number" data-type="weight" placeholder="Weight of tool" min="1"]
+      .inputWrapper[data-legend="Tools"]
+        select#tool[name="tool"]
+          option[value="dumbbell"] Dumbbell
+          option[value="rolling"] Roller
+          option[value="body"] Body Weight
+      button#submitBtn[onclick="submit()"] Submit
+    script[src="bower_components/jquery/dist/jquery.min.js" charset="utf-8"]
+    script[src="bower_components/maphilight/jquery.maphilight.min.js" charset="utf-8"]
+    script[src="js/main.js" charset="utf-8"]
