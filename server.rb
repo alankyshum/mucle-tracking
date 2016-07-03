@@ -4,7 +4,6 @@ require 'json'
 require 'awesome_print'
 require 'mongo'
 # MODELS
-config = JSON.parse(File.read('lib/config.json'))
 musclePos = JSON.parse(File.read('lib/musclePositions.json'))
 
 # INCLUDE
@@ -18,7 +17,7 @@ records = nil
 # -------------
 configure do
   # linking mongo database
-  client = Mongo::Client.new(config["mongolab"])
+  client = Mongo::Client.new(ENV["mongolab_db"])
   records = client["records"]
 end
 
