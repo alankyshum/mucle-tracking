@@ -13,7 +13,9 @@ html[lang="en"]
         img.muscle[id="#{src['id']}" src="#{src['src']}"]
       img#baseImage[src="assets/baseMuscleStructure.png" usemap="#Map"]
       map[name="Map"]
-        - musclePos.each do |pos|
+        - musclePosFront.each do |pos|
+          area[target="" alt="#{pos['title']}" title="#{pos['title']}" coords="#{pos['coords']}" shape="poly"]
+        - musclePosBack.each do |pos|
           area[target="" alt="#{pos['title']}" title="#{pos['title']}" coords="#{pos['coords']}" shape="poly"]
     #traningInput
       h3#muscleName

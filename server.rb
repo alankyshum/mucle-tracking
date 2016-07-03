@@ -16,7 +16,6 @@ records = nil
 
 # CONFIGURATION
 # -------------
-
 configure do
   # linking mongo database
   client = Mongo::Client.new(config["mongolab"])
@@ -29,7 +28,8 @@ end
 
 get ('/') {
   Slim::Template.new('views/index.slim', {}).render(Object.new,
-    :musclePos => musclePos["pos"],
+    :musclePosFront => musclePos["posFront"],
+    :musclePosBack => musclePos["posBack"],
     :muscleSrc => musclePos["img"]
   )
 }
