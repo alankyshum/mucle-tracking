@@ -8,34 +8,74 @@ html[lang="en"]
     link[rel="shortcut icon" href="favicon.png"]
     link[rel="stylesheet" href="css/main.css"]
   body
-    #skin
-      - muscleSrc.each do |src|
-        img.muscle[id="#{src['id']}" src="#{src['src']}"]
-      img#baseImage[src="assets/baseMuscleStructure.png" usemap="#Map"]
-      map[name="Map"]
-        - musclePosFront.each do |pos|
-          area[target="" alt="#{pos['title']}" title="#{pos['title']}" coords="#{pos['coords']}" shape="poly"]
-        - musclePosBack.each do |pos|
-          area[target="" alt="#{pos['title']}" title="#{pos['title']}" coords="#{pos['coords']}" shape="poly"]
-    #traningInput
-      h3#muscleName
-      .inputWrapper[data-legend="Timestamp"]
-        input#date[type="date" placeholder="Traning Date"]
-        input#time[type="time" placeholder="Training Time"]
-        span#numSetsWrapper.pseudoWrapper
-          input#numSets[type="number" name="numSets" value="1" min="1" max="99" placeholder="Sets"]
-      .inputWrapper[data-legend="Type"]
-        input#type[type="checkbox"]
-        label.trainingDetail[data-type="cardio" for="type"] Cardio
-        label.trainingDetail[data-type="weight" for="type"] Weight
-        input#minutes.trainingDetail[type="number" data-type="cardio" placeholder="Length of training" min="1"]
-        input#weight.trainingDetail[type="number" data-type="weight" placeholder="Weight of tool" min="1"]
-      .inputWrapper[data-legend="Tools"]
-        select#tool[name="tool"]
-          option[value="dumbbell"] Dumbbell
-          option[value="rolling"] Roller
-          option[value="body"] Body Weight
-      button#submitBtn[onclick="submit()"] Submit
-    script[src="bower_components/jquery/dist/jquery.min.js" charset="utf-8"]
+    div#container
+
+      div[data-anchor='selectMuscle']
+        / -- MUSCLE IMAGES::BEGIN --
+        / div#skin
+          - muscleSrc.each do |src|
+            img.muscle[id="#{src['id']}" src="#{src['src']}"]
+          img#baseImage[src="assets/baseMuscleStructure.png" usemap="#Map"]
+          map[name="Map"]
+            - musclePosFront.each do |pos|
+              area[target="" alt="#{pos['title']}" title="#{pos['title']}" coords="#{pos['coords']}" shape="poly"]
+            - musclePosBack.each do |pos|
+              area[target="" alt="#{pos['title']}" title="#{pos['title']}" coords="#{pos['coords']}" shape="poly"]
+
+      div[data-anchor='workoutDetails']
+        div
+          div.col-xs-3#trainingType
+            ul
+              li Endurance
+              li Weight
+          div.col-md-9#trainingExplain
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        div
+          div.col-xs-6#tool[data-toggle='modal' data-target='#toolPicker']
+          div.col-xs-6#trainingDetails
+            h1 Either time object or weight
+        div.crossPage
+          div.col-xs-2 _cross_mark_here_
+          div.col-xs-10 _number_picker_here_
+
+      div[data-anchor='workoutTime']
+        h1 Testing Page 3
+
+    / DYNAMICALLY SHOWN ELEMENTS HERE
+    div.modal.fade#toolPicker[role='dialog']
+    div Tool Picker Here
+
+    script[src="bower_components/jquery/dist/jquery.slim.min.js" charset="utf-8"]
     script[src="bower_components/maphilight/jquery.maphilight.min.js" charset="utf-8"]
     script[src="js/main.js" charset="utf-8"]
+
+
+
+
+
+
+
+/ JUNK CODE COLLECTION []
+  h3#muscleName
+  .inputWrapper[data-legend="Timestamp"]
+    input#date[type="date" placeholder="Traning Date"]
+    input#time[type="time" placeholder="Training Time"]
+    span#numSetsWrapper.pseudoWrapper
+      input#numSets[type="number" name="numSets" value="1" min="1" max="99" placeholder="Sets"]
+  .inputWrapper[data-legend="Type"]
+    input#type[type="checkbox"]
+    label.trainingDetail[data-type="cardio" for="type"] Cardio
+    label.trainingDetail[data-type="weight" for="type"] Weight
+    input#minutes.trainingDetail[type="number" data-type="cardio" placeholder="Length of training" min="1"]
+    input#weight.trainingDetail[type="number" data-type="weight" placeholder="Weight of tool" min="1"]
+  .inputWrapper[data-legend="Tools"]
+    select#tool[name="tool"]
+      option[value="dumbbell"] Dumbbell
+      option[value="rolling"] Roller
+      option[value="body"] Body Weight
+  button#submitBtn[onclick="submit()"] Submit
+  div.crossPage
+  div#muscleImage
+    img[src='assets/fore/abs core.png']
+  div#muscleDetails
+    p __could_be_training_summary_chart__

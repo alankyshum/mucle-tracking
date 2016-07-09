@@ -16,8 +16,9 @@
     "url": "https://github.com/alankyshum/mucle-tracking/issues"
   },
   "homepage": "https://github.com/alankyshum/mucle-tracking#readme",
-  "dependencies": {
+  "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-react": "^3.1.0",
     "gulp-sass": "^2.3.2"
   }
 }

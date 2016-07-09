@@ -1,3 +1,6 @@
+# README:
+# run this with: bundle exec rackup
+
 # ----------------------
 # ENVIRONMENT VARIABLES
 # ----------------------

@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
+const react = require('gulp-react');
 
 
 gulp.task('css', function () {
@@ -8,6 +9,13 @@ gulp.task('css', function () {
   .pipe(gulp.dest('public/css'));
 });
 
+gulp.task('react', function () {
+  return gulp.src('jsx/**/*.jsx')
+  .pipe(react())
+  .pipe(gulp.dest('public/js'))
+});
+
 gulp.task('watch', function () {
   gulp.watch('scss/**/*.scss', ['css']);
+  gulp.watch('jsx/**/*.jsx', ['react']);
 });
