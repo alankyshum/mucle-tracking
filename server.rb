@@ -25,13 +25,13 @@ end
 # APIS OPENING
 # ------------
 
-get ('/') {
+get '/' do
   Slim::Template.new('views/index.slim', {}).render(Object.new,
     :musclePosFront => musclePos["posFront"],
     :musclePosBack => musclePos["posBack"],
     :muscleSrc => musclePos["img"]
   )
-}
+end
 
 post '/trackingRecord' do
   ap params

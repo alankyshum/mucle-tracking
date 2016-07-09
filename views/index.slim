@@ -4,52 +4,21 @@ html[lang="en"]
     meta[charset="utf-8"]
     title Mucle Training Tracking
     meta[name="theme-color" content="#9a0000"]
+    meta[name='viewport' content='width=device-width, initial-scale=1']
     link[rel="icon" sizes="192x192" href="favicon.png"]
     link[rel="shortcut icon" href="favicon.png"]
     link[rel="stylesheet" href="css/main.css"]
   body
-    div#container
+    / === FIRST SCREEN :: SELECT MUSCLE ===
+    div.screen
+      div#bodyContainer[style='width: 960px; height: 700px;background-color: #545454; color: #fff; text-align: center;']
+        h3 Place Holder for muscle image selector
 
-      div[data-anchor='selectMuscle']
-        / -- MUSCLE IMAGES::BEGIN --
-        / div#skin
-          - muscleSrc.each do |src|
-            img.muscle[id="#{src['id']}" src="#{src['src']}"]
-          img#baseImage[src="assets/baseMuscleStructure.png" usemap="#Map"]
-          map[name="Map"]
-            - musclePosFront.each do |pos|
-              area[target="" alt="#{pos['title']}" title="#{pos['title']}" coords="#{pos['coords']}" shape="poly"]
-            - musclePosBack.each do |pos|
-              area[target="" alt="#{pos['title']}" title="#{pos['title']}" coords="#{pos['coords']}" shape="poly"]
-
-      div[data-anchor='workoutDetails']
-        div
-          div.col-xs-3#trainingType
-            ul
-              li Endurance
-              li Weight
-          div.col-md-9#trainingExplain
-            p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        div
-          div.col-xs-6#tool[data-toggle='modal' data-target='#toolPicker']
-          div.col-xs-6#trainingDetails
-            h1 Either time object or weight
-        div.crossPage
-          div.col-xs-2 _cross_mark_here_
-          div.col-xs-10 _number_picker_here_
-
-      div[data-anchor='workoutTime']
-        h1 Testing Page 3
-
-    / DYNAMICALLY SHOWN ELEMENTS HERE
-    div.modal.fade#toolPicker[role='dialog']
-    div Tool Picker Here
-
-    script[src="bower_components/jquery/dist/jquery.slim.min.js" charset="utf-8"]
-    script[src="bower_components/maphilight/jquery.maphilight.min.js" charset="utf-8"]
-    script[src="js/main.js" charset="utf-8"]
-
-
+    / Fraemwork JS
+    / script[src="bower_components/jquery/dist/jquery.slim.min.js" charset="utf-8"]
+    / script[src="bower_components/maphilight/jquery.maphilight.min.js" charset="utf-8"]
+    / Components JS
+    script[src='js/App.js']
 
 
 
