@@ -11,14 +11,14 @@ gulp.task('css', function () {
 // === JSX ===
 const browserify = require('browserify');
 const fs = require('fs');
-gulp.task('build-app', function () {
+gulp.task('jsx', function () {
   // doc: https://github.com/babel/babelify
   browserify('jsx/App.jsx')
   .transform('babelify', {presets: ['es2015', 'react']})
   .bundle()
   .on('error', (e) => {
     console.error(e.codeFrame);
-    console.error(`\t\t[FILE] ${e.filename}`);
+    console.error(e.toString());
     this.emit('end');
   })
   .pipe(fs.createWriteStream('public/js/App.js'));
@@ -29,7 +29,7 @@ gulp.task('build-app', function () {
 // ================
 gulp.task('watch', function () {
   gulp.watch('scss/**/*.scss', ['css']);
-  gulp.watch('jsx/**/*.jsx', ['build-app']);
+  gulp.watch('jsx/**/*.jsx', ['jsx']);
 });
 
-gulp.task('build', ['css', 'build-app'], function () {});
+gulp.task('build', ['css', 'jsx'], function () {});
