@@ -210,6 +210,7 @@
 /**
  * REACT VERSION HERE
  */
+// === GENERAL RULES ===
 * {
   margin: 0;
 }
@@ -217,4 +218,11 @@
   height: 100vh;
   width: 100vw;
   overflow: scroll;
+}
+// === CLASS RULES ===
+#mainAppBar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
 }
