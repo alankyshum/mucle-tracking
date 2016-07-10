@@ -12,9 +12,15 @@ gulp.task('css', function () {
 const browserify = require('browserify');
 const fs = require('fs');
 gulp.task('build-app', function () {
+  // doc: https://github.com/babel/babelify
   browserify('jsx/App.jsx')
   .transform('babelify', {presets: ['es2015', 'react']})
   .bundle()
+  .on('error', (e) => {
+    console.error(e.codeFrame);
+    console.error(`\t\t[FILE] ${e.filename}`);
+    this.emit('end');
+  })
   .pipe(fs.createWriteStream('public/js/App.js'));
 });
 
