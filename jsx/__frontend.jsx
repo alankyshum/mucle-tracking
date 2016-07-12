@@ -40,8 +40,8 @@ $(() => {
 
   // CLICk ACTION
   $('area').click(function() {
-    muscleName = $(this).attr('title');
-    document.getElementById('muscleName').innerText = muscleName;
+    // muscleName = $(this).attr('title');
+    // document.getElementById('muscleName').innerText = muscleName;
     let muscleImg = document.getElementById(muscleName);
     // keep focusing on that muscle
     let allHovered = document.getElementsByClassName('focused');

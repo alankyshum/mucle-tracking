@@ -3,8 +3,6 @@ require 'slim'
 require 'json'
 require 'awesome_print'
 require 'mongo'
-# MODELS
-musclePos = JSON.parse(File.read('lib/musclePositions.json'))
 
 # INCLUDE
 include Mongo
@@ -26,11 +24,7 @@ end
 # ------------
 
 get '/' do
-  Slim::Template.new('views/index.slim', {}).render(Object.new,
-    :musclePosFront => musclePos["posFront"],
-    :musclePosBack => musclePos["posBack"],
-    :muscleSrc => musclePos["img"]
-  )
+  Slim::Template.new('views/index.slim', {}).render()
 end
 
 post '/trackingRecord' do
