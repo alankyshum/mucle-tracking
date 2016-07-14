@@ -13,7 +13,9 @@ const browserify = require('browserify');
 const fs = require('fs');
 gulp.task('jsx', function () {
   // doc: https://github.com/babel/babelify
-  browserify('jsx/App.jsx')
+  browserify('jsx/App.jsx', {
+    debug: true
+  })
   .transform('babelify', {presets: ['es2015', 'react']})
   .bundle()
   .on('error', (e) => {
