@@ -19,10 +19,13 @@ configure do
   records = client["records"]
 end
 
+# INITIALISE
+# ----------
+system('gulp build');
+system('gulp watch');
 
 # APIS OPENING
 # ------------
-
 get '/' do
   Slim::Template.new('views/index.slim', {}).render()
 end
