@@ -2,9 +2,12 @@ const gulp = require('gulp');
 
 // === CSS ===
 const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
 gulp.task('css', function () {
   return gulp.src('scss/**/*.scss')
+  .pipe(sourcemaps.init())
   .pipe(sass().on('error', sass.logError))
+  .pipe(sourcemaps.write())
   .pipe(gulp.dest('public/css'));
 });
 
