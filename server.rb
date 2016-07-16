@@ -21,8 +21,8 @@ end
 
 # INITIALISE
 # ----------
-system('gulp build');
-system('gulp watch');
+system('gulp build') # wait to finish
+spawn('gulp watch') # run at bg
 
 # APIS OPENING
 # ------------
