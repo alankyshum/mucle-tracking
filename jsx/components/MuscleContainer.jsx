@@ -14,10 +14,10 @@ export default class MuscleContainer extends React.Component {
           <img id='baseImage' src='assets/baseMuscleStructure.png' useMap='#MuscleMap' />
           <map name='MuscleMap'>
             {musclePosition.posFront.map((muscle) => {
-              return <area alt={muscle.title} key={muscle.title+muscle.pos} title={muscle.title} coords={muscle.coords} shape="poly"/>
+              return <area alt={muscle.title} key={muscle.title+muscle.pos} title={muscle.title} coords={muscle.coords} shape="poly" onClick={() => this.props.updateMuscleTitle(muscle.title)} />
             })}
             {musclePosition.posBack.map((muscle) => {
-              return <area alt={muscle.title} key={muscle.title+muscle.pos} title={muscle.title} coords={muscle.coords} shape="poly"/>
+              return <area alt={muscle.title} key={muscle.title+muscle.pos} title={muscle.title} coords={muscle.coords} shape="poly" onClick={() => this.props.updateMuscleTitle(muscle.title)} />
             })}
           </map>
         </div>
@@ -25,15 +25,3 @@ export default class MuscleContainer extends React.Component {
     )
   }
 }
-
-
-// reference code
-// #skin
-//  - muscleSrc.each do |src|
-//    img.muscle[id="#{src['id']}" src="#{src['src']}"]
-//  img#baseImage[src="assets/baseMuscleStructure.png" usemap="#Map"]
-//  map[name="Map"]
-//    - musclePosFront.each do |pos|
-//      area[target="" alt="#{pos['title']}" title="#{pos['title']}" coords="#{pos['coords']}" shape="poly"]
-//    - musclePosBack.each do |pos|
-//      area[target="" alt="#{pos['title']}" title="#{pos['title']}" coords="#{pos['coords']}" shape="poly"]
