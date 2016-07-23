@@ -6,7 +6,7 @@ export default class MainAppBar extends React.Component {
   render() {
     return (
       <AppBar
-        title={this.props.muscleTitle}
+        title={store.getState().muscleTitle}
         iconClassNameRight="fa fa-angle-up"
       />
     )

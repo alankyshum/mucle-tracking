@@ -4,6 +4,9 @@ import React from 'react';
 import musclePosition from '../../lib/musclePositions.json';
 
 export default class MuscleContainer extends React.Component {
+  updateMuscleTitle(newTitle) {
+    store.dispatch({type: "SET_MUSCLE_TITLE", title: newTitle})
+  }
   render() {
     return (
       <div id='skinContainer'>
@@ -14,10 +17,10 @@ export default class MuscleContainer extends React.Component {
           <img id='baseImage' src='assets/baseMuscleStructure.png' useMap='#MuscleMap' />
           <map name='MuscleMap'>
             {musclePosition.posFront.map((muscle) => {
-              return <area alt={muscle.title} key={muscle.title+muscle.pos} title={muscle.title} coords={muscle.coords} shape="poly" onClick={() => this.props.updateMuscleTitle(muscle.title)} />
+              return <area alt={muscle.title} key={muscle.title+muscle.pos} title={muscle.title} coords={muscle.coords} shape="poly" onClick={() => this.updateMuscleTitle(muscle.title)} />
             })}
             {musclePosition.posBack.map((muscle) => {
-              return <area alt={muscle.title} key={muscle.title+muscle.pos} title={muscle.title} coords={muscle.coords} shape="poly" onClick={() => this.props.updateMuscleTitle(muscle.title)} />
+              return <area alt={muscle.title} key={muscle.title+muscle.pos} title={muscle.title} coords={muscle.coords} shape="poly" onClick={() => this.updateMuscleTitle(muscle.title)} />
             })}
           </map>
         </div>
