@@ -3,7 +3,7 @@ const gulp = require('gulp');
 // === CSS ===
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
-gulp.task('css', function () {
+gulp.task('css', () => {
   return gulp.src('scss/**/*.scss')
   .pipe(sourcemaps.init())
   .pipe(sass().on('error', sass.logError))
@@ -14,12 +14,12 @@ gulp.task('css', function () {
 // === JSX ===
 const browserify = require('browserify');
 const fs = require('fs');
-gulp.task('jsx', function () {
+gulp.task('jsx', () => {
   // doc: https://github.com/babel/babelify
   browserify('jsx/App.jsx', {
     debug: true
   })
-  .transform('babelify', {presets: ['es2015', 'react']})
+  .transform('babelify', { presets: ['es2015', 'react'] })
   .bundle()
   .on('error', (e) => {
     console.error(e.codeFrame);
@@ -32,9 +32,9 @@ gulp.task('jsx', function () {
 // ================
 // == GULP TASKS ==
 // ================
-gulp.task('watch', function () {
+gulp.task('watch', () => {
   gulp.watch('scss/**/*.scss', ['css']);
-  gulp.watch('jsx/**/*.jsx', ['jsx']);
+  gulp.watch(['jsx/**/*.jsx', 'lib/**/*.json'], ['jsx']);
 });
 
-gulp.task('build', ['css', 'jsx'], function () {});
+gulp.task('build', ['css', 'jsx'], () => {});

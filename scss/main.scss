@@ -20,14 +20,19 @@
   height: calc(100vh - 64px);
   div, #baseImage {
     -webkit-filter: grayscale(1);
+    opacity: .5;
   }
   img.muscle {
     position: absolute;
     z-index: -1;
     pointer-events: none;
+    -webkit-filter: grayscale(0.5);
+    opacity: .8;
     &.focused,
     &.hover {
       z-index: 99;
+      -webkit-filter: grayscale(0);
+      opacity: 1;
     }
   }
   #absCore {
