@@ -1,7 +1,6 @@
-// ------------------------------
-// GLOBAL VARIABLES + INITIALISE
-// ------------------------------
-// --- HELPER FUNCTION
+// ===================
+// === OVERRIDE JS ===
+// ===================
 Date.prototype.toDateInputValue = (function() {
   let local = new Date(this);
   local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
@@ -14,48 +13,8 @@ Date.prototype.toTimeInputValue = (function() {
   stamps[1] = stamps[1].length===1 ? `0${stamps[1]}` : stamps[1];
   return `${stamps[0]}:${stamps[1]}`;
 });
-// --- GLOBAL VARIABLES
-// const now = new Date();
-// let muscleName = null;
-// document.getElementById('date').value = now.toDateInputValue();
-// document.getElementById('time').value = now.toTimeInputValue();
 
 
-// ---------------------------
-// JQUERY CONTROLLED ELMENTS -
-// ---------------------------
-$(() => {
-  $('#baseImage').maphilight({
-    fill: false,
-    stroke: false
-  });
-  $('area').mouseover(function() {
-    let muscleImg = document.getElementById($(this).attr('title'));
-    muscleImg.classList.add('hover');
-  })
-  .mouseout(function() {
-    let muscleImg = document.getElementById($(this).attr('title'));
-    muscleImg.classList.remove('hover');
-  });
-
-  // CLICk ACTION
-  $('area').click(function() {
-    // muscleName = $(this).attr('title');
-    // document.getElementById('muscleName').innerText = muscleName;
-    let muscleImg = document.getElementById(muscleName);
-    // keep focusing on that muscle
-    let allHovered = document.getElementsByClassName('focused');
-    Object.keys(allHovered).forEach((i) => {
-      allHovered[i] && allHovered[i].classList.remove('focused');
-    });
-    muscleImg.classList.add('focused');
-  });
-});
-
-
-// ----------------
-// FORM SUBMISSION
-// ----------------
 const _serialise = (obj) => {
   let str = [];
   for(let p in obj)
@@ -108,4 +67,11 @@ const submit = () => {
   .catch((err) => {
     console.error(`Error: ${err}`);
   })
+}
+
+export default function() {
+  return {
+    _serialise,
+    _submitFormHelper
+  }
 }
