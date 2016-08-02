@@ -26,10 +26,12 @@ injectTapEventPlugin();
 // === TrainingDetailsScreen ===
 import MainAppBar from './components/MainAppBar.jsx';
 import MuscleContainer from './components/MuscleContainer.jsx';
+import TrainingDetailDrawer from './components/TrainingDetailDrawer.jsx';
 const TrainingDetailsScreen = () => (
   <div>
     <MainAppBar />
     <MuscleContainer />
+    <TrainingDetailDrawer />
   </div>
 );
 
@@ -50,7 +52,7 @@ const renderApp = () => {
           primary2Color: '#E91E63',
           primary3Color: '#F8BBD0',
           accent1Color: '#4CAF50',
-          textColor: '#FFFFFF',
+          textColor: '#545454',
           secondaryTextColor: '#212121',
           borderColor: '#B6B6B6'
         }
