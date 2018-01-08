@@ -2,10 +2,10 @@ require 'sinatra'
 require 'slim'
 require 'json'
 require 'awesome_print'
-require 'mongo'
+# require 'mongo'
 
 # INCLUDE
-include Mongo
+# include Mongo
 
 # GLOBAL VARAIBLES
 # ----------------
@@ -15,8 +15,8 @@ records = nil
 # -------------
 configure do
   # linking mongo database
-  client = Mongo::Client.new(ENV["mongolab_db"])
-  records = client["records"]
+  # client = Mongo::Client.new(ENV["mongolab_db"])
+  # records = client["records"]
 end
 
 # INITIALISE

@@ -10,7 +10,7 @@ export default () => (
     open={window.store.getState().trainingDetailDrawer.open}
     zDepth={0}
   >
-    <MenuItem onTouchTap={() => window.store.dispatch({ type: 'TOGGLE_DRAWER_OPEN', open: false })}>
+    <MenuItem>
       Close Drawer
     </MenuItem>
   </Drawer>

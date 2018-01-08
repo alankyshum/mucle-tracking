@@ -21,7 +21,7 @@ gulp.task('jsx', () => {
   })
   .transform('babelify', { presets: ['es2015', 'react'] })
   .bundle()
-  .on('error', (e) => {
+  .on('error', function(e) {
     console.error(e.codeFrame);
     console.error(e.toString());
     this.emit('end');

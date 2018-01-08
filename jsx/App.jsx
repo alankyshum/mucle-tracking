@@ -5,7 +5,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 // --- material ui
-import injectTapEventPlugin from 'react-tap-event-plugin';
+// import injectTapEventPlugin from 'react-tap-event-plugin';
 // --- theme
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -17,7 +17,7 @@ window.store = createStore(reducer);
 // === COMPONENTS ====
 
 // === INIT ===
-injectTapEventPlugin();
+// injectTapEventPlugin();
 
 
 // ===============
@@ -31,7 +31,7 @@ const TrainingDetailsScreen = () => (
   <div>
     <MainAppBar />
     <MuscleContainer />
-    <TrainingDetailDrawer />
+    {/* <TrainingDetailDrawer /> */}
   </div>
 );
 
