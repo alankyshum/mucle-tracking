@@ -7,8 +7,8 @@ This repo was created 2 years ago, and left there since after.
 ## Steps
 1. Start server
     ```bash
-    yarn install
-    yarn run start
+    yarn install # or `npm install`
+    yarn run start # or `npm run start` or `node server.js`
     ```
 1. Visit and test that out
     Go to [localhost:8080](http://localhost:8080/)
