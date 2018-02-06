@@ -9,4 +9,6 @@ app.get('/', (req, res) => {
 app.use('/vendor', express.static('./node_modules'));
 app.use('/', express.static('./public'));
 
+
 app.listen(8080);
+console.log(`Server listening at http://localhost:8080`);
